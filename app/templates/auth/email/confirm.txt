@@ -1,0 +1,13 @@
+Dear {{ user.username }}
+
+Welcome to MyApp!
+
+To confirm your account please click on the following link:
+
+{{ urlFor('auth.confirm', token=token, _external=True) }}
+
+Sincerely,
+
+MyApp Team
+
+Note: replies to this email address are not monitored

@@ -1,3 +1,5 @@
+Python 3.7.5
+
 ***First of all type this commands:***
 
 - `python manage.py db init`

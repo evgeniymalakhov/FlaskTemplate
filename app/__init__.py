@@ -2,13 +2,12 @@ from flask import Flask, render_template
 from flask import request
 #from flask_babel import Babel
 #from flask_phrase import Phrase
-#from flask_admin import Admin
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-
+from .admin import Admin
 
 from config import config
 
@@ -17,6 +16,10 @@ mail = Mail()
 moment = Moment()
 db = SQLAlchemy()
 login_manager = LoginManager()
+admin = Admin(
+    template_mode='bootstrap3',
+    name='FLASKY Admin'
+)
 
 from .models import AnonymousUser
 login_manager.anonymous_user = AnonymousUser
@@ -38,6 +41,7 @@ def create_app(config_name):
     moment.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
+    admin.init_app(app)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)

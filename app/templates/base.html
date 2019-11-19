@@ -39,7 +39,7 @@
                                 </li>
                                 {% if current_user.is_administrator() %}
                                     <li>
-                                        <a href="#">Admin panel</a>
+                                        <a href="{{ url_for('admin.index') }}">Admin panel</a>
                                     </li>
                                 {% endif %}
                                 <li><a href="#">Settings</a></li>
